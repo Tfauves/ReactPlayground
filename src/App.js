@@ -5,6 +5,7 @@ import BorderCard from './components/common/BorderCard';
 import CounterCard from './components/common/CounterCard';
 
 
+
 function App() {
   const name = "travis";
 
@@ -17,6 +18,7 @@ function App() {
       marginTop: "25rem"
     }}>
     <CounterCard />
+    
      {/* <BorderCard>
        <Counter/>
      </BorderCard> */}
