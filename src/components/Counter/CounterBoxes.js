@@ -6,7 +6,7 @@ const CounterBoxes = (props) => {
         const output = [];
         for (let count = 0; count < props.count; count++) {
         output.push(
-            <CounterBox count={count} key={count} />
+            <CounterBox count={count+1} key={count} />
         )
     }
     return output;

@@ -24,7 +24,6 @@ const Button = (props) => {
 const myStyles = {
   button: {
     alignSelf: "center",
-    // backgroundColor: "#F96295",
     backgroundColor: "#3343f2",
     marginLeft: 5,
     marginRight: 5,

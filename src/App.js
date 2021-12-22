@@ -42,7 +42,7 @@ function App() {
       minHeight: '100vh',
     }}>
       <div style={{display: 'flex', width: '100%', flexDirection: 'row'}}>
-        <Button onClick={handleReduce} style={{backgroundColor: 'red'}} disabled={count === 0} >
+        <Button onClick={handleReduce} style={{backgroundColor: '#bd2a2a'}} disabled={count === 0} >
           <p>
             Remove
           </p>  
