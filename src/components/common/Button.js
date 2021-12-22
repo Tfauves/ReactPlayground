@@ -5,6 +5,7 @@ const Button = (props) => {
 
   return (
     <button
+      type={props.type || "submit"}
       style={{...styles.button, ...props.style}}
       onClick={props.onClick}
       disabled={props.disabled}
@@ -22,7 +23,7 @@ const Button = (props) => {
 const styles = {
   button: {
     alignSelf: 'center',
-    backgroundColor: '#3592bd',
+    backgroundColor: '#3343f2',
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 10,

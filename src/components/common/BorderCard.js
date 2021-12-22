@@ -4,7 +4,7 @@ const BorderCard = (props) => {
 
   return (
     <div
-      style={styles.card}
+      style={{...styles.card, ...props.style}}
     >
       {props.children}
     </div>
@@ -20,8 +20,7 @@ const styles = {
     padding: '10px',
     width: "80%",
     maxWidth: 500,
-    //the counter box color
-    backgroundColor: "#894ead",
+    backgroundColor: "lightblue",
     boxShadow: '1px 1px 20px rgba(91, 91, 91, 0.5)'
   }
 }
