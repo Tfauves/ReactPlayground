@@ -16,7 +16,7 @@ const Profile = (props) => {
     useEffect(() => {
         const _fetchDeveloper = async () => {
             const res = await axios.get(
-                `http://localhost:8080/developers/${developer.id}`,
+                `http://localhost:8080/api/developers/${developer.id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${auth.token}`
