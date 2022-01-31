@@ -7,7 +7,7 @@ import image from '../../assets/background-img.jpg';
 import Button from '../common/Button';
 import {faUserPlus, faUserSlash} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-
+import lorem from '../../assets/loremIpsum'
 
 const Profile = (props) => {
   const params = useParams();
@@ -42,6 +42,27 @@ const Profile = (props) => {
     display about me and if friends then display friends list on right.
   */
 
+
+    const addFriend = async () => {
+        try { 
+            await axios.post(`http://localhost:8080/api/relationships/add/${developer.id}`,
+            {},
+            {
+                 headers: {
+                    Authorization: `Bearer ${auth.token}`
+                }
+            }
+        )
+        alert("success")
+    }catch (e) {
+        console.log(e.message)
+        if (e.response) {
+            console.log(e.response.data.message);
+         }
+    }
+}
+
+
   const displayProfile = () => {
     return (
       <Fragment>
@@ -64,7 +85,7 @@ const Profile = (props) => {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-            <img src="https://via.placeholder.com/200" />
+            <img src="https://via.placeholder.com/200" alt="placeholder img" />
           </div>
           <div style={{
             flex: 2,
@@ -88,7 +109,10 @@ const Profile = (props) => {
           <Button style={{
             width: 'auto',
             color: '#F1F1F1',
-          }}>
+          }}
+          onClick={addFriend}
+          >
+
             <FontAwesomeIcon icon={faUserPlus} /> Add Friend
           </Button>
           <Button style={{
@@ -100,6 +124,37 @@ const Profile = (props) => {
           </Button> 
         </div>
         {/* about me and friends list */}
+        <div style= {{
+            display: "flex",
+            flexDirection: "row",
+            width: "100%",
+            maxWidth: "900px"
+        }}>
+            <div style={{
+                flex: 2,
+                flexDirection: "column",
+                width: "100%",
+                padding: "4px",
+                display: "flex"
+                
+              
+            }}>
+                <h2>About Me</h2>
+                <p>{lorem.substring(0, 5000)}</p>
+            </div>
+            <div style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                padding: "4px",
+                marginLeft: "10px"
+
+            }}>
+                <h2>Friends</h2>
+                <p>not friends yet</p>
+            </div>
+        </div>
       </Fragment>
     )
   }
