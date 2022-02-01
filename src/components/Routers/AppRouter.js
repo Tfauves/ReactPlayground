@@ -1,18 +1,19 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import Navbar from "../Navbar/NavBar";
+// import Navbar from "../Navbar/NavBar";
 import Home from "../Home/Home";
 import News from '../News/News';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Developers from '../Developers/Developers';
 import Profile from '../Profile/Profile';
+import NavBar from '../Navbar/NavBar';
 
 const AppRouter = () => {
 
   return (
     <div style={{width: '100%'}}>
-      <Navbar />
+      <NavBar />
       <div style={{ marginTop: "75px", width: "100%"}}>
         
         <Routes>
