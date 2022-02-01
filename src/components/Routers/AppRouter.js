@@ -7,13 +7,13 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Developers from '../Developers/Developers';
 import Profile from '../Profile/Profile';
-http://geekydev-tfauves-dev.apps.sandbox.x8i5.p1.openshiftapps.com
+// import NavBar from '../Navbar/NavBar';
 
 const AppRouter = () => {
 
   return (
     <div style={{width: '100%'}}>
-     http://geekydev-tfauves-dev.apps.sandbox.x8i5.p1.openshiftapps.com
+      {/* <NavBar /> */}
       <div style={{ marginTop: "75px", width: "100%"}}>
         
         <Routes>
