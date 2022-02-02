@@ -7,7 +7,7 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Developers from '../Developers/Developers';
 import Profile from '../Profile/Profile';
-import NavBar from './Navbar';
+import NavBar from '../Navbar';
 // import NavBar from '../Navbar/NavBar';
 
 
