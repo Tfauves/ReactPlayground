@@ -17,8 +17,7 @@ const Register = () => {
     lname: "",
   });
 
-  // submitting context
-
+ 
   const [auth, setAuth] = useContext(AuthContext)
 
   const updateForm = (field, value) => {
@@ -29,7 +28,6 @@ const Register = () => {
   }
 
   const onSubmit = async (e) => {
-    //validation
     if (query.password !== query.confirm) {
       alert('Passwords do not match');
       return;
@@ -72,7 +70,7 @@ const Register = () => {
         }
       )
       console.log(res.data);
-      setAuth({token, name: res.data.name});
+      setAuth({token, profile: res.data});
       alert(res.data.id);
       navigate('/developers')
     } catch (err) {

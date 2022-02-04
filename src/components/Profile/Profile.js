@@ -5,7 +5,7 @@ import {AuthContext} from '../Providers/AuthProvider'
 import Spinner from '../faCommon/Spinner';
 import image from '../../assets/background-img.jpg';
 import Button from '../common/Button';
-import {faUserPlus, faUserSlash} from '@fortawesome/free-solid-svg-icons'
+import {faUserPlus, faUserSlash, faUserClock, faUserMinus, faPeopleArrows} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import lorem from '../../assets/loremIpsum'
 
@@ -15,7 +15,7 @@ const Profile = (props) => {
     id: params.devId
   });
   const [loading, setLoading] = useState(true);
-  const [auth] = useContext(AuthContext);
+  const [auth, setAuth] = useContext(AuthContext);
 
   // pull developer data from backend
   useEffect(() => {
@@ -42,6 +42,7 @@ const Profile = (props) => {
     display about me and if friends then display friends list on right.
   */
 
+    console.log(auth);
 
     const addFriend = async () => {
         try { 
@@ -53,7 +54,16 @@ const Profile = (props) => {
                 }
             }
         )
-        alert("success")
+        alert("success");
+        setAuth({...auth, profile: {
+          ...auth.profile,
+          pendingFriends: [
+            ...auth.profile.pendingFriends,
+            {
+              id: developer.id
+            }
+          ]
+        }})
     }catch (e) {
         console.log(e.message)
         if (e.response) {
@@ -61,6 +71,77 @@ const Profile = (props) => {
          }
     }
 }
+
+const removeFriend = async () => {
+  alert('poof they are gone');
+}
+
+const blockUser = async () => {
+  alert("blocked user")
+}
+
+const approveFriend = async => {
+  alert("new friend added")
+}
+
+const displayRelationButton = () => {
+  console.log(auth);
+  if (auth.profile.friends.find((friend) => friend.id === developer.id)) {
+    // we are friends yay
+    return (
+      <Button 
+          style={{
+            width: 'auto',
+            color: '#F1F1F1',
+          }}
+          onClick={removeFriend}
+        >
+          <FontAwesomeIcon icon={faUserMinus} /> Remove Friend
+        </Button>
+    )
+  }
+  if (auth.profile.pendingFriends.find((friend) => friend.id === developer.id)) {
+    // we are friends yay
+    return (
+      <Button 
+          style={{
+            width: 'auto',
+            color: '#F1F1F1',
+          }}
+        >
+          <FontAwesomeIcon icon={faUserClock} /> Pending Approval
+        </Button>
+    )
+  }
+  if (auth.profile.incomingFriends.find((friend) => friend.id === developer.id)) {
+    // we are friends yay
+    return (
+      <Button 
+          style={{
+            width: 'auto',
+            color: '#F1F1F1',
+          }}
+          onClick={addFriend}
+        >
+          <FontAwesomeIcon icon={faPeopleArrows} /> Approve Friend
+        </Button>
+    )
+  }
+
+  return (
+    <Button 
+      style={{
+        width: 'auto',
+        color: '#F1F1F1',
+      }}
+      onClick={addFriend}
+    >
+      <FontAwesomeIcon icon={faUserPlus} /> Add Friend
+    </Button>
+  )    
+  
+}
+
 
 
   const displayProfile = () => {
@@ -106,14 +187,16 @@ const Profile = (props) => {
           width: '100%',
           maxWidth: '900px'
         }}>
+          {displayRelationButton()}
           <Button style={{
             width: 'auto',
             color: '#F1F1F1',
-          }}
-          onClick={addFriend}
-          >
-
-            <FontAwesomeIcon icon={faUserPlus} /> Add Friend
+            backgroundColor: "red"
+          }}>
+          Block <FontAwesomeIcon icon ={faUserSlash} />
+          </Button>
+      
+            {/* <FontAwesomeIcon icon={faUserPlus} /> Add Friend
           </Button>
           <Button style={{
             width: 'auto',
@@ -121,7 +204,7 @@ const Profile = (props) => {
             backgroundColor: 'red'
           }}>
             Block <FontAwesomeIcon icon={faUserSlash} />
-          </Button> 
+          </Button>  */}
         </div>
         {/* about me and friends list */}
         <div style= {{
@@ -152,7 +235,7 @@ const Profile = (props) => {
 
             }}>
                 <h2>Friends</h2>
-                <p>not friends yet</p>
+                <p>no friends yet</p>
             </div>
         </div>
       </Fragment>
