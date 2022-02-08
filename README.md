@@ -1,1 +1,1 @@
-limited frontend for geekylikes app
+limited frontend for geekyLikes app
