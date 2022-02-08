@@ -1,1 +1,1 @@
-limited frontend for geekyLikes app
+ React frontend for geekyLikes app
