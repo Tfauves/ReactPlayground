@@ -16,12 +16,13 @@ const Profile = (props) => {
   });
   const [loading, setLoading] = useState(true);
   const [auth, setAuth] = useContext(AuthContext);
-
+  const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
   // pull developer data from backend
   useEffect(() => {
     const _fetchDeveloper = async () => {
+     
       const res = await axios.get(
-        `http://localhost:8080/api/developers/${developer.id}`,
+        `${host}/api/developers/${developer.id}`,
         {
           headers: {
             Authorization: `Bearer ${auth.token}`
@@ -46,7 +47,7 @@ const Profile = (props) => {
 
     const addFriend = async () => {
         try { 
-            await axios.post(`http://localhost:8080/api/relationships/add/${developer.id}`,
+            await axios.post(`${host}/api/relationships/add/${developer.id}`,
             {},
             {
                  headers: {

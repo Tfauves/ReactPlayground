@@ -18,12 +18,12 @@ const Developers = (props) => {
   useEffect(() => {
     const _getDevelopers = async () => {
       setLoading(true);
-      const apiHost = process.env.REACT_APP_API_HOST || "http://localhost:8080"
+      const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
       try {
 
         // const res = await axios.get(
         //   'http://localhost:8080/api/developers',
-        const res = await axios.get(`${apiHost}/api/developers`,
+        const res = await axios.get(`${host}/api/developers`,
 
           {
             headers: {

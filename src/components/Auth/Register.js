@@ -19,7 +19,7 @@ const Register = () => {
 
  
   const [auth, setAuth] = useContext(AuthContext)
-
+  const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
   const updateForm = (field, value) => {
     setQuery({
       ...query,
@@ -36,7 +36,7 @@ const Register = () => {
     data.name = query.fname + " " + query.lname;
     data.cohort = parseInt(query.cohort);
     try {
-      const res = await axios.post('http://localhost:8080/api/auth/signup', data)
+      const res = await axios.post(`${host}/api/auth/signup`, data)
       // alert(res.data.message);
       login(data);
     } catch (err) {
@@ -47,7 +47,7 @@ const Register = () => {
   const login = async (data) => {
     try {
       const res = await axios.post(
-        'http://localhost:8080/api/auth/signin', 
+        `${host}/api/auth/signin`, 
         data
       )
       // alert(res.data.token);
@@ -60,8 +60,9 @@ const Register = () => {
   const createDeveloper = async (data, token) => {
     data.email = data.username;
     try {
+      const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
       const res = await axios.post(
-        "http://localhost:8080/api/developers", 
+        `${host}/api/developers`, 
         data,
         {
           headers: {
