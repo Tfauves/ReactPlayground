@@ -26,7 +26,7 @@ const Login = () => {
     // submit query to backend to login.
     setSubmitting(true);
     try {
-      const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
+      const host = process.env.REACT_APP_API_HOST || "http://localhost:8080";
       const res = await axios.post(`${host}/api/auth/signin`, query);
       const profileRes = await axios.get(`${host}/api/developers/self`, {
           headers: {

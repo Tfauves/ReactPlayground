@@ -11,14 +11,12 @@ const Developers = (props) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // use effect to pull list of developers
-  // use state to store the developers
-  // neet bearer token to get the developer list.
 
   useEffect(() => {
+    const host = process.env.REACT_APP_API_HOST || "http://localhost:8080";
     const _getDevelopers = async () => {
-      setLoading(true);
-      const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
+      // setLoading(true);
+      
       try {
 
         // const res = await axios.get(
