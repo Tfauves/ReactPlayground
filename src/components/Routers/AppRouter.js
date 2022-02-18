@@ -11,7 +11,6 @@ import Navbar from '../Navbar/NavBar'
 
 
 
-
 const AppRouter = () => {
 
   return (
