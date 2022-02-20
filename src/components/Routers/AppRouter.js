@@ -6,7 +6,7 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 import Developers from '../Developers/Developers';
 import Profile from '../Profile/Profile';
-import Navbar from '../Navbar/NavBar'
+import NavBar from '../NavBar/Navbar'
 
 
 
@@ -15,7 +15,7 @@ const AppRouter = () => {
 
   return (
     <div style={{width: '100%'}}>
-      <Navbar />
+      <NavBar />
       <div style={{ marginTop: "75px", width: "100%"}}>
         
         <Routes>
