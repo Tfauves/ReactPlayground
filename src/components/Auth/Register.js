@@ -5,7 +5,7 @@ import {AuthContext} from '../Providers/AuthProvider';
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-
+  const host = process.env.REACT_APP_API_HOST || "http://localhost:8080";
   let navigate = useNavigate();
 
   const [query, setQuery] = useState({
@@ -19,7 +19,7 @@ const Register = () => {
 
  
   const [auth, setAuth] = useContext(AuthContext)
-  const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
+  
   const updateForm = (field, value) => {
     setQuery({
       ...query,

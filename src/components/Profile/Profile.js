@@ -16,11 +16,11 @@ const Profile = (props) => {
   });
   const [loading, setLoading] = useState(true);
   const [auth, setAuth] = useContext(AuthContext);
-  const host = process.env.REACT_APP_API_HOST || "http://localhost:8080"
+  const host = process.env.REACT_APP_API_HOST || "http://localhost:8080";
   // pull developer data from backend
   useEffect(() => {
     const _fetchDeveloper = async () => {
-     
+
       const res = await axios.get(
         `${host}/api/developers/${developer.id}`,
         {

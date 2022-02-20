@@ -19,9 +19,9 @@ const Developers = (props) => {
       
       try {
 
-        // const res = await axios.get(
-        //   'http://localhost:8080/api/developers',
-        const res = await axios.get(`${host}/api/developers`,
+        const res = await axios.get(
+          `${host}/api/developers`,
+      
 
           {
             headers: {
