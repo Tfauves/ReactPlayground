@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import NavBar from "../Navbar/NavBar";
+// import NavBar from "../Navbar/NavBar";
 import Home from "../Home/Home";
 import News from '../News/News';
 import Login from '../Auth/Login';
@@ -12,7 +12,7 @@ const AppRouter = () => {
 
   return (
     <div style={{width: '100%'}}>
-      <NavBar />
+      {/* <NavBar /> */}
       <div style={{ marginTop: "75px", width: "100%"}}>
         
         <Routes>
