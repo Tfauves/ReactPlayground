@@ -1,6 +1,6 @@
 import React, {useContext, Fragment} from 'react';
 import {AuthContext} from '../Providers/AuthProvider'
-import NavButton from './NavButtonn';
+import NavButtonn from './NavButtonn';
 
 const NavBarr = (props) => {
     const [auth] = useContext(AuthContext)
@@ -37,14 +37,14 @@ const NavBarr = (props) => {
             padding: '0em 1.2em',
             justifyContent: 'flex-end'
           }}>
-            <NavButton to="/" label="home" />
-            <NavButton to="/news" label="news" />
+            <NavButtonn to="/" label="home" />
+            <NavButtonn to="/news" label="news" />
             {auth.token ? (
-              <NavButton to="/developers" label="Developers" />
+              <NavButtonn to="/developers" label="Developers" />
             ) : (
               <Fragment>
-                <NavButton to="/login" label="login" />
-                <NavButton to="/register" label="Sign up" />
+                <NavButtonn to="/login" label="login" />
+                <NavButtonn to="/register" label="Sign up" />
               </Fragment>
             ) }
             
