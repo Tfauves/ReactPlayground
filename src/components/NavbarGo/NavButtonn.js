@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 
-const NavButton = (props) => {
+const NavButtonn = (props) => {
   // const [display, setDisplay] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -30,4 +30,4 @@ const NavButton = (props) => {
 
 }
 
-export default NavButton;
+export default NavButtonn;
